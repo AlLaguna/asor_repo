@@ -12,7 +12,7 @@ int main()
    
    if(error == -1) //Hay error
    {
-        cout << "ERROR";
+        perror(strerror(error));
    }
 
    return 1;
