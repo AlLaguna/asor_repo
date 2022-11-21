@@ -15,3 +15,5 @@ int main()
 
     return 1;
 }
+
+//Para asegurarnos de que no afecta la mascara puesta anteriormente, simplemente vale on cerrar yvolver a abrir la consola antes de ejecutar el programa
