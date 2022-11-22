@@ -29,18 +29,18 @@ int main(int numArg, const char *argv[])
         else{
 
             struct dirent *d;
-
+            int tamaño = 0;
             while((d = readdir(directorio)) != NULL)
             {
+                struct stat buf;
+                stat(d->d_name, &buf);
+
                 if(d->d_type == DT_DIR)//Directorio  /
                 {
                     cout << "/ " << d->d_name << endl;
                 }
                 else if(d->d_type == DT_REG)//fichero regular con permiso de ejecucion
                 {
-                    struct stat buf;
-                    stat(d->d_name, &buf);
-
                     if(buf.st_mode == S_IXUSR || buf.st_mode == S_IXOTH || buf.st_mode == S_IXGRP)
                     {
                         cout << "* " << d->d_name << endl;
@@ -49,8 +49,6 @@ int main(int numArg, const char *argv[])
                     {
                         cout << d->d_name << endl;
                     }
-
-                    
                 }
                 else if(d->d_type == DT_LNK) //Enlace simbolico ->
                 {
@@ -59,8 +57,9 @@ int main(int numArg, const char *argv[])
                     cout << d->d_name << " -> " << linkname << endl;
                 }       
                 
-
+                tamaño = tamaño + buf.st_size;
             }
+            cout << "tamanio: " << tamaño << endl;
         }
     }
     cout << endl;
