@@ -38,6 +38,6 @@ int main(int argc, char const *argv[])
     cout << s.st_uid << endl;
      cout << s.st_gid << endl;
 
-
+    return 0;
     
 }
