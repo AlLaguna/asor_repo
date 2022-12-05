@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         exit(-1);
     }
 
-    //PADRE
+    //HIJO
     if(pid == 0)
     {
         close(tuberia[0]); //Cierra el otro extremo "Nota: Antes de ejecutar el comando correspondiente, deben cerrarse todos los descriptores no necesarios."
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
         execlp(argv[1], argv[1], argv[2], NULL); //Ejecuta el 2ndo comando 
     }
-    else //HIJO
+    else //PADRE
     {
         close(tuberia[1]);
         dup2(tuberia[0], STDIN_FILENO); //
