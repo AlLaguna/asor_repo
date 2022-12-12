@@ -70,64 +70,6 @@ int main(int argc, char *argv[])
 
         cout << "fin conexion con " << clienteHost << ":" << clienteServicio << endl;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-    /*cout << "En escucha" << endl;
-
-    char cliente[NI_MAXHOST];
-	char servicio[NI_MAXSERV];
-    char buf[8];
-    ssize_t l;
-	time_t t;
-	size_t time_bytes;
-	struct tm *tm;
-	char mensaje[128];
-
-    struct sockaddr_storage cAddr;
-	socklen_t cAddrLen = sizeof(cAddr);
-
-    while(true)
-    {
-        l = recvfrom(soc, buf, 8, 0, (struct sockaddr *) &cAddr, &cAddrLen);
-
-        getnameinfo((struct sockaddr *) &cAddr, cAddrLen, cliente, NI_MAXHOST, servicio, NI_MAXSERV, NI_NUMERICHOST | NI_NUMERICSERV);
-		
-        cout << l << "bytes de " << cliente << " con servicio " << servicio << ": " << buf << endl;
-        
-        t = time(NULL);
-		tm = localtime(&t);
-
-        if (buf[0] == 't')
-		{
-			time_bytes = strftime(mensaje, 128, "%T", tm);
-
-			
-			sendto(soc, mensaje, time_bytes + 2, 0, (struct sockaddr *) &cAddr, cAddrLen);
-		}
-        else if (buf[0] == 'd')
-		{
-			time_bytes = strftime(mensaje, 128, "%F", tm);
-			
-			sendto(soc, mensaje, time_bytes + 2, 0, (struct sockaddr *) &cAddr, cAddrLen);
-			
-		}
-        else if (buf[0] == 'q')
-		{
-			cout << "EXIT" << endl;
-			
-			exit(EXIT_SUCCESS);
-		}
-    }*/
-    
+	
     return 0;
 }
