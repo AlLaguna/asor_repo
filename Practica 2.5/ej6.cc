@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
     
     hints.ai_family = AF_UNSPEC;    
-	hints.ai_socktype = SOCK_DGRAM; 
+	hints.ai_socktype = SOCK_STREAM; 
 	hints.ai_protocol = 0;    
 
 
